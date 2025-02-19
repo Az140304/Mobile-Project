@@ -1,4 +1,5 @@
 import 'package:first_project/pages/count_number.dart';
+import 'package:first_project/pages/tambah_kurang.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -50,6 +51,10 @@ class HomePage extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TambahKurang()),
+                  );
                   print("Container dan teks diklik!");
                 },
                 child: Column(
@@ -75,7 +80,7 @@ class HomePage extends StatelessWidget {
                         child: Image.asset("assets/icons/oddeven.png", fit: BoxFit.scaleDown),
                       ),
                     ),
-                    Text('Ganjil Genap')
+                    Text('Tambah Kurang',)
                   ],
                 ),
               ),
@@ -235,8 +240,8 @@ class HomePage extends StatelessWidget {
                   child: Image.asset("assets/icons/human3.jpg", fit: BoxFit.scaleDown),
                 ),
               ),
-              Text('ReFaiza Septa'),
-              Text('123220000')
+              Text('Re Faiza Depta P'),
+              Text('123220050')
                 ],
               ),
             ]
