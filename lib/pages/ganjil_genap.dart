@@ -12,7 +12,14 @@ class _GanjilGenapState extends State<GanjilGenap> {
   String _oddEvenResult = "";
 
   void _cekGanjilGenap() {
-    int number = int.tryParse(_numController.text) ?? 0;
+    int? number = int.tryParse(_numController.text);
+    if (number == null) {
+      setState(() {
+        _oddEvenResult = "Masukkan bilangan bulat yang valid!";
+      });
+      return;
+    }
+
     String type = (number % 2 == 0) ? "genap" : "ganjil";
 
     setState(() {

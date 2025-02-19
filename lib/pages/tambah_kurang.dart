@@ -14,9 +14,16 @@ class _TambahKurangState extends State<TambahKurang> {
   String _result = "";
 
   void _calculate() {
-    double num1 = double.tryParse(_num1Controller.text) ?? 0;
-    double num2 = double.tryParse(_num2Controller.text) ?? 0;
-    double result;
+    if (_num1Controller.text.isEmpty || _num2Controller.text.isEmpty) {
+      setState(() {
+        _result = "Masukkan kedua angka terlebih dahulu!";
+      });
+      return;
+    }
+    
+    num num1 = num.tryParse(_num1Controller.text.replaceAll(',', '.')) ?? 0; // ganti inputan koma dengan
+    num num2 = num.tryParse(_num2Controller.text.replaceAll(',', '.')) ?? 0;
+    num result;
 
     if (_selectedOperation == "+") {
       result = num1 + num2;
@@ -25,7 +32,7 @@ class _TambahKurangState extends State<TambahKurang> {
     }
 
     setState(() {
-      _result = "Hasil: $result";
+      _result = "Hasil dari $num1 $_selectedOperation $num2 = $result";
     });
   }
 
@@ -89,6 +96,22 @@ class _TambahKurangState extends State<TambahKurang> {
             Text(
               _result,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.symmetric(vertical: 40),
+              decoration: BoxDecoration(
+                color: Colors.grey[200], // Warna latar belakang lembut
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.grey), // Border tipis
+              ),
+              child: Text(
+                "Catatan: tanda koma (,) dan titik (.) akan dianggap sebagai desimal",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black54),
+              ),
             ),
           ],
         ),
