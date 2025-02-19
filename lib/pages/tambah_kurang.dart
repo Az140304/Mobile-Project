@@ -4,7 +4,7 @@ class TambahKurang extends StatefulWidget {
   const TambahKurang({super.key});
 
   @override
-  _TambahKurangState createState() => _TambahKurangState();
+  State<TambahKurang> createState() => _TambahKurangState();
 }
 
 class _TambahKurangState extends State<TambahKurang> {

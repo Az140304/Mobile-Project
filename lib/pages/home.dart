@@ -1,4 +1,5 @@
 import 'package:first_project/pages/count_number.dart';
+import 'package:first_project/pages/ganjil_genap.dart';
 import 'package:first_project/pages/tambah_kurang.dart';
 import 'package:flutter/material.dart';
 
@@ -88,6 +89,10 @@ class HomePage extends StatelessWidget {
               
               GestureDetector(
                 onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GanjilGenap()),
+                  );
                   print("Container dan teks diklik!");
                 },
                 child: Column(
