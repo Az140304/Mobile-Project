@@ -1,3 +1,4 @@
+import 'package:first_project/pages/count_number.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(top: 10),
-            child: menu(),
+            child: menu(context),
           ),
           Container(
             margin: EdgeInsets.only(top: 50),
@@ -43,7 +44,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Row menu(){
+  Row menu(BuildContext context){
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -114,6 +115,10 @@ class HomePage extends StatelessWidget {
               
               GestureDetector(
                 onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CountNumber()),
+                  );
                   print("Container dan teks diklik!");
                 },
                 child: Column(
@@ -139,7 +144,7 @@ class HomePage extends StatelessWidget {
                         child: Image.asset("assets/icons/oddeven.png", fit: BoxFit.scaleDown),
                       ),
                     ),
-                    Text('Ganjil Genap')
+                    Text('Count Number')
                   ],
                 ),
               ),
