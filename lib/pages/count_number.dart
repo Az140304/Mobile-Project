@@ -19,12 +19,17 @@ class _CountNumberState extends State<CountNumber> {
       countMap[eachNumber] = (countMap[eachNumber] ?? 0) + 1;
     }
 
+    int total=0;
+    for (int eachNumber in digits){
+      total+=eachNumber;
+    }
+
     String summary = "";
     countMap.forEach((key, value) {
       summary += 'Angka $key muncul sebanyak $value kali\n';
     });
-    summary += "Jumlah Angka Keseluruhan : ${digits.length}\n";
-
+    summary += "Banyak Angka Keseluruhan : ${digits.length}\n";
+    summary += "Jumlah Angka Keseluruhan : $total\n";
     setState(() {
       _summary = summary;
     });
@@ -41,7 +46,11 @@ class _CountNumberState extends State<CountNumber> {
           children: [
             Text("Input Number", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
-            RoundedTextField(controller: _controller),
+            TextField(
+              controller: _controller,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(labelText: "Masukkan angka"),
+            ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
@@ -54,6 +63,11 @@ class _CountNumberState extends State<CountNumber> {
                   });
                 }
               },
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    Theme.of(context).primaryColor, // Warna sesuai tema utama
+                foregroundColor: Colors.white, // Warna teks
+              ),
               child: Text("Hitung"),
             ),
             SizedBox(height: 15),
@@ -70,44 +84,6 @@ class _CountNumberState extends State<CountNumber> {
     return AppBar(
       title: Text('Count Number', style: TextStyle(fontWeight: FontWeight.bold)),
       centerTitle: true,
-    );
-  }
-}
-
-class RoundedTextField extends StatelessWidget {
-  final TextEditingController controller;
-  
-  RoundedTextField({required this.controller});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 8,
-            spreadRadius: 2,
-            offset: Offset(4, 4),
-          ),
-        ],
-      ),
-      child: TextField(
-        controller: controller,
-        keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          hintText: "Enter Number...",
-          filled: true,
-          fillColor: Colors.white,
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: BorderSide.none,
-          ),
-        ),
-      ),
     );
   }
 }
