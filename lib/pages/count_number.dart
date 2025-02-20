@@ -39,7 +39,8 @@ class _CountNumberState extends State<CountNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      body: Padding(
+      body: SingleChildScrollView(
+        child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,6 +78,9 @@ class _CountNumberState extends State<CountNumber> {
           ],
         ),
       ),
+      )
+      
+      
     );
   }
 
