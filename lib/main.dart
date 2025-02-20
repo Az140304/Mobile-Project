@@ -1,3 +1,4 @@
+import 'package:first_project/pages/login.dart';
 import 'package:first_project/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
-
-
