@@ -12,7 +12,7 @@ class _CountNumberState extends State<CountNumber> {
   String _summary = "";
 
   void countNumber(int number) {
-    List<int> digits = number.toString().padLeft(5, '0').split('').map(int.parse).toList();
+    List<int> digits = number.toString().split('').map(int.parse).toList();
     
     Map<int, int> countMap = {};
     for (int eachNumber in digits) {
