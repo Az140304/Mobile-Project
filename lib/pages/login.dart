@@ -11,7 +11,7 @@ Map<String, Map<String, String>> users = {
     'username': 'test1',
     'password': '123'
   },
-  '123220050': {'nama': 'Re Faiza', 'username': 'test2', 'password': '234'}
+  '123220050': {'nama': 'Re Faiza', 'username': 'refaiza', 'password': '234'}
 };
 
 class LoginPage extends StatelessWidget {
