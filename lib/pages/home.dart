@@ -1,4 +1,5 @@
 import 'package:first_project/pages/count_number.dart';
+import 'package:first_project/pages/login.dart';
 import 'package:first_project/pages/ganjil_genap.dart';
 import 'package:first_project/pages/tambah_kurang.dart';
 import 'package:flutter/material.dart';
@@ -262,8 +263,8 @@ class HomePage extends StatelessWidget {
                   Image.asset("assets/icons/human3.jpg", fit: BoxFit.scaleDown),
             ),
           ),
-          Text('ReFaiza Septa'),
-          Text('123220000')
+          Text('Re Faiza Depta P'),
+          Text('123220050')
         ],
       ),
     ]);
