@@ -30,11 +30,11 @@ class _GanjilGenapState extends State<GanjilGenap> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:
-            Text('Ganjil Genap', style: TextStyle(fontWeight: FontWeight.bold)),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title:
+      //       Text('Ganjil Genap', style: TextStyle(fontWeight: FontWeight.bold)),
+      //   centerTitle: true,
+      // ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

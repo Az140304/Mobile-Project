@@ -4,44 +4,53 @@ import 'package:first_project/pages/ganjil_genap.dart';
 import 'package:first_project/pages/tambah_kurang.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.text});
 
   final String text;
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   //LoginPage({Key key, required this.text}) : super(key: key);
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = <Widget>[
+    HomeBody(),
+    TambahKurang(),
+    GanjilGenap(),
+    CountNumber(),
+  ];
+
+  final List<String> _titles = <String>[
+    'Home',
+    'Tambah Kurang',
+    'Ganjil Genap',
+    'Hitung Digit',
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      body: Column(
-        children: [
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Container(
-              margin: EdgeInsets.only(top: 20),
-              alignment: Alignment.center,
-              child: Text(
-                "Feature Menu",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            )
-          ]),
-          Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: menu(context),
-          ),
-          Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Text(
-                "Developed By",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              )),
-          Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: author(),
-          ),
-        ],
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: _onItemTapped,
+        destinations: const <NavigationDestination>[
+          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.add_circle_outline_rounded), label: 'Tambah Kurang'),
+          NavigationDestination(icon: Icon(Icons.filter_1), label: 'Ganjil Genap'),
+          NavigationDestination(icon: Icon(Icons.numbers), label: 'Hitung DIgit'),
+        ]
       ),
     );
   }
@@ -49,7 +58,7 @@ class HomePage extends StatelessWidget {
   AppBar appBar() {
     return AppBar(
       title: Text(
-        'Mobile Task',
+        _titles[_selectedIndex],
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       centerTitle: true,
@@ -174,99 +183,130 @@ class HomePage extends StatelessWidget {
       ),
     ]);
   }
+}
 
-  Row author() {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Column(
-        children: [
-          Container(
-            margin: EdgeInsets.all(10),
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              color: Colors.white, // Warna latar belakang
-              borderRadius:
-                  BorderRadius.circular(12), // Membuat sudut melengkung
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black26, // Warna shadow dengan transparansi
-                  blurRadius: 8, // Membuat shadow lebih halus
-                  spreadRadius: 2, // Menyebarkan shadow
-                  offset: Offset(4, 4), // Posisi shadow (X, Y)
-                ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius:
-                  BorderRadius.circular(12), // Pastikan gambar ikut melengkung
-              child:
-                  Image.asset("assets/icons/human1.jpg", fit: BoxFit.scaleDown),
-            ),
+class HomeBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     Container(
+        //       margin: EdgeInsets.only(top: 20),
+        //       alignment: Alignment.center,
+        //       child: Text(
+        //         "Feature Menu",
+        //         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        //       ),
+        //     )
+        //   ],
+        // ),
+        // Padding(
+        //   padding: EdgeInsets.only(top: 10),
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       GestureDetector(
+        //         onTap: () {
+        //           Navigator.push(context, MaterialPageRoute(builder: (context) => TambahKurang()));
+        //         },
+        //         child: menuItem("assets/icons/oddeven.png", "Tambah Kurang"),
+        //       ),
+        //       GestureDetector(
+        //         onTap: () {
+        //           Navigator.push(context, MaterialPageRoute(builder: (context) => GanjilGenap()));
+        //         },
+        //         child: menuItem("assets/icons/oddeven.png", "Ganjil Genap"),
+        //       ),
+        //       GestureDetector(
+        //         onTap: () {
+        //           Navigator.push(context, MaterialPageRoute(builder: (context) => CountNumber()));
+        //         },
+        //         child: menuItem("assets/icons/oddeven.png", "Count Number"),
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        Container(
+          margin: EdgeInsets.only(top: 50),
+          child: Text(
+            "Developed By",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
-          Text('Veri Anggoro W'),
-          Text('123220000')
-        ],
-      ),
-      Column(
-        children: [
-          Container(
-            margin: EdgeInsets.all(10),
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              color: Colors.white, // Warna latar belakang
-              borderRadius:
-                  BorderRadius.circular(12), // Membuat sudut melengkung
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black26, // Warna shadow dengan transparansi
-                  blurRadius: 8, // Membuat shadow lebih halus
-                  spreadRadius: 2, // Menyebarkan shadow
-                  offset: Offset(4, 4), // Posisi shadow (X, Y)
-                ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius:
-                  BorderRadius.circular(12), // Pastikan gambar ikut melengkung
-              child:
-                  Image.asset("assets/icons/human2.jpg", fit: BoxFit.scaleDown),
-            ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              authorItem("assets/icons/human1.jpg", "Veri Anggoro W", "123220000"),
+              authorItem("assets/icons/human2.jpg", "Azhar Fikri A", "123220000"),
+              authorItem("assets/icons/human3.jpg", "Re Faiza Depta P", "123220050"),
+            ],
           ),
-          Text('Azhar Fikri A'),
-          Text('123220000')
-        ],
-      ),
-      Column(
-        children: [
-          Container(
-            margin: EdgeInsets.all(10),
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              color: Colors.white, // Warna latar belakang
-              borderRadius:
-                  BorderRadius.circular(12), // Membuat sudut melengkung
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black26, // Warna shadow dengan transparansi
-                  blurRadius: 8, // Membuat shadow lebih halus
-                  spreadRadius: 2, // Menyebarkan shadow
-                  offset: Offset(4, 4), // Posisi shadow (X, Y)
-                ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius:
-                  BorderRadius.circular(12), // Pastikan gambar ikut melengkung
-              child:
-                  Image.asset("assets/icons/human3.jpg", fit: BoxFit.scaleDown),
-            ),
+        ),
+      ],
+    );
+  }
+
+  // Widget menuItem(String imagePath, String title) {
+  //   return Column(
+  //     children: [
+  //       Container(
+  //         margin: EdgeInsets.all(10),
+  //         height: 100,
+  //         width: 100,
+  //         decoration: BoxDecoration(
+  //           color: Colors.white,
+  //           borderRadius: BorderRadius.circular(12),
+  //           boxShadow: [
+  //             BoxShadow(
+  //               color: Colors.black26,
+  //               blurRadius: 8,
+  //               spreadRadius: 2,
+  //               offset: Offset(4, 4),
+  //             ),
+  //           ],
+  //         ),
+  //         child: ClipRRect(
+  //           borderRadius: BorderRadius.circular(12),
+  //           child: Image.asset(imagePath, fit: BoxFit.scaleDown),
+  //         ),
+  //       ),
+  //       Text(title)
+  //     ],
+  //   );
+  // }
+
+  Widget authorItem(String imagePath, String name, String id) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.all(10),
+          height: 100,
+          width: 100,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 8,
+                spreadRadius: 2,
+                offset: Offset(4, 4),
+              ),
+            ],
           ),
-          Text('Re Faiza Depta P'),
-          Text('123220050')
-        ],
-      ),
-    ]);
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(imagePath, fit: BoxFit.scaleDown),
+          ),
+        ),
+        Text(name),
+        Text(id),
+      ],
+    );
   }
 }
