@@ -1,13 +1,13 @@
-import 'package:first_project/pages/count_number.dart';
-import 'package:first_project/pages/login.dart';
-import 'package:first_project/pages/ganjil_genap.dart';
 import 'package:first_project/pages/tambah_kurang.dart';
+import 'package:first_project/pages/ganjil_genap.dart';
+import 'package:first_project/pages/count_number.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.text});
 
   final String text;
+
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +96,13 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(
-                    12), // Pastikan gambar ikut melengkung
-                child: Image.asset("assets/icons/oddeven.png",
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset("assets/icons/human1.jpg",
                     fit: BoxFit.scaleDown),
               ),
             ),
-            Text('Ganjil Genap')
+            Text('Veri Anggoro W'),
+            Text('123220000')
           ],
         ),
       ),
@@ -120,64 +121,53 @@ class _HomePageState extends State<HomePage> {
               height: 100,
               width: 100,
               decoration: BoxDecoration(
-                color: Colors.white, // Warna latar belakang
-                borderRadius:
-                    BorderRadius.circular(12), // Membuat sudut melengkung
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black26, // Warna shadow dengan transparansi
-                    blurRadius: 8, // Membuat shadow lebih halus
-                    spreadRadius: 2, // Menyebarkan shadow
-                    offset: Offset(4, 4), // Posisi shadow (X, Y)
+                    color: Colors.black26,
+                    blurRadius: 8,
+                    spreadRadius: 2,
+                    offset: Offset(4, 4),
                   ),
                 ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(
-                    12), // Pastikan gambar ikut melengkung
-                child: Image.asset("assets/icons/oddeven.png",
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset("assets/icons/human2.jpg",
                     fit: BoxFit.scaleDown),
               ),
             ),
-            Text('Ganjil Genap')
+            Text('Azhar Fikri A'),
+            Text('123220000')
           ],
         ),
-      ),
-      GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CountNumber()),
-          );
-          print("Container dan teks diklik!");
-        },
-        child: Column(
+        Column(
           children: [
             Container(
               margin: EdgeInsets.all(10),
               height: 100,
               width: 100,
               decoration: BoxDecoration(
-                color: Colors.white, // Warna latar belakang
-                borderRadius:
-                    BorderRadius.circular(12), // Membuat sudut melengkung
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black26, // Warna shadow dengan transparansi
-                    blurRadius: 8, // Membuat shadow lebih halus
-                    spreadRadius: 2, // Menyebarkan shadow
-                    offset: Offset(4, 4), // Posisi shadow (X, Y)
+                    color: Colors.black26,
+                    blurRadius: 8,
+                    spreadRadius: 2,
+                    offset: Offset(4, 4),
                   ),
                 ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(
-                    12), // Pastikan gambar ikut melengkung
-                child: Image.asset("assets/icons/oddeven.png",
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset("assets/icons/human3.jpg",
                     fit: BoxFit.scaleDown),
               ),
             ),
-            Text('Count Number')
+            Text('Re Faiza Depta P'),
+            Text('123220050')
           ],
         ),
       ),

@@ -5,6 +5,15 @@ import 'package:first_project/pages/home.dart';
 TextEditingController usernameController = TextEditingController();
 TextEditingController passwordController = TextEditingController();
 
+Map<String, Map<String, String>> users = {
+  '123220042': {
+    'nama': 'Azhar Fikri H.',
+    'username': 'test1',
+    'password': '123'
+  },
+  '123220050': {'nama': 'Re Faiza', 'username': 'test2', 'password': '234'}
+};
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -78,6 +87,7 @@ class _LoginCardState extends State<LoginCard> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      /*
                       if (usernameController.text == "admin" &&
                           passwordController.text == "123") {
                         Navigator.push(
@@ -92,7 +102,25 @@ class _LoginCardState extends State<LoginCard> {
                           const SnackBar(
                               content: Text('Username atau password salah')),
                         );
+                      }*/
+                      for (var entry in users.entries) {
+                        if (entry.value['username'] ==
+                                usernameController.text &&
+                            entry.value['password'] ==
+                                passwordController.text) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage(
+                                      text: usernameController.text,
+                                    )),
+                          );
+                        }
                       }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text('Username atau password salah')),
+                      );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
