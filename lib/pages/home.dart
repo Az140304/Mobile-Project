@@ -266,8 +266,8 @@ class HomeBody extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              authorItem("assets/icons/human1.jpg", "Veri Anggoro W", "123220000"),
-              authorItem("assets/icons/human2.jpg", "Azhar Fikri A", "123220000"),
+              authorItem("assets/icons/human1.jpg", "Veri Anggoro W", "123220146"),
+              authorItem("assets/icons/human2.jpg", "Azhar Fikri H", "123220042"),
               authorItem("assets/icons/human3.jpg", "Re Faiza Depta P", "123220050"),
             ],
           ),
