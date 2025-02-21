@@ -29,7 +29,9 @@ class LoginPage extends StatelessWidget {
               color: Colors.black, fontSize: 30.0, fontWeight: FontWeight.w600),
           title: const Text('Login Page'),
         ),
-        body: const LoginCard(),
+        body: SingleChildScrollView(
+          child: LoginCard(),
+        ) 
       ),
     );
   }
@@ -103,6 +105,7 @@ class _LoginCardState extends State<LoginCard> {
                               content: Text('Username atau password salah')),
                         );
                       }*/
+                      bool logged = false;
                       for (var entry in users.entries) {
                         if (entry.value['username'] ==
                                 usernameController.text &&
@@ -115,12 +118,15 @@ class _LoginCardState extends State<LoginCard> {
                                       text: usernameController.text,
                                     )),
                           );
+                          logged = true;
                         }
                       }
-                      ScaffoldMessenger.of(context).showSnackBar(
+                      if(logged == false){
+                        ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                             content: Text('Username atau password salah')),
                       );
+                      }
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

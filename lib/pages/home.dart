@@ -15,14 +15,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   //LoginPage({Key key, required this.text}) : super(key: key);
+  late List<Widget> _pages;
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = <Widget>[
-    HomeBody(),
-    TambahKurang(),
-    GanjilGenap(),
-    CountNumber(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      HomeBody(text: widget.text), // Kirim text ke HomeBody
+      TambahKurang(),
+      GanjilGenap(),
+      CountNumber(),
+    ];
+  }
 
   final List<String> _titles = <String>[
     'Home',
@@ -186,6 +191,9 @@ class _HomePageState extends State<HomePage> {
 }
 
 class HomeBody extends StatelessWidget {
+  final String text;
+
+  HomeBody({required this.text});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -229,8 +237,25 @@ class HomeBody extends StatelessWidget {
         //     ],
         //   ),
         // ),
+      
         Container(
-          margin: EdgeInsets.only(top: 50),
+          margin: EdgeInsets.only(left: 50, top: 50),
+          child: Row(
+            children: [
+              Image.asset(
+                  'assets/icons/man.png',
+                  width: 100.0,
+                ),
+                SizedBox(width: 20,),
+              Text(
+                "Selamat Datang, $text!",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ],
+          ) 
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 20),
           child: Text(
             "Developed By",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -301,7 +326,7 @@ class HomeBody extends StatelessWidget {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(imagePath, fit: BoxFit.scaleDown),
+            child: Image.asset(imagePath, fit: BoxFit.cover),
           ),
         ),
         Text(name),
