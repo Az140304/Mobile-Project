@@ -39,11 +39,11 @@ class _TambahKurangState extends State<TambahKurang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tambah Kurang',
-            style: TextStyle(fontWeight: FontWeight.bold)),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title: Text('Tambah Kurang',
+      //       style: TextStyle(fontWeight: FontWeight.bold)),
+      //   centerTitle: true,
+      // ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

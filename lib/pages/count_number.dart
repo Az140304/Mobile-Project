@@ -38,7 +38,7 @@ class _CountNumberState extends State<CountNumber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      // appBar: appBar(),
       body: SingleChildScrollView(
         child: Padding(
         padding: const EdgeInsets.all(20.0),
