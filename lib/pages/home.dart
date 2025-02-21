@@ -1,4 +1,6 @@
 import 'package:first_project/pages/count_number.dart';
+import 'package:first_project/pages/login.dart';
+import 'package:first_project/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -53,30 +55,81 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Row menu(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      GestureDetector(
-        onTap: () {
-          print("Container dan teks diklik!");
-        },
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.white, // Warna latar belakang
-                borderRadius:
-                    BorderRadius.circular(12), // Membuat sudut melengkung
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26, // Warna shadow dengan transparansi
-                    blurRadius: 8, // Membuat shadow lebih halus
-                    spreadRadius: 2, // Menyebarkan shadow
-                    offset: Offset(4, 4), // Posisi shadow (X, Y)
-                  ),
-                ],
+  Row menu(BuildContext context){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TambahKurang()),
+                  );
+                  print("Container dan teks diklik!");
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.white, // Warna latar belakang
+                        borderRadius: BorderRadius.circular(12), // Membuat sudut melengkung
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26, // Warna shadow dengan transparansi
+                            blurRadius: 8, // Membuat shadow lebih halus
+                            spreadRadius: 2, // Menyebarkan shadow
+                            offset: Offset(4, 4), // Posisi shadow (X, Y)
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12), // Pastikan gambar ikut melengkung
+                        child: Image.asset("assets/icons/oddeven.png", fit: BoxFit.scaleDown),
+                      ),
+                    ),
+                    Text('Tambah Kurang',)
+                  ],
+                ),
+              ),
+              
+              
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GanjilGenap()),
+                  );
+                  print("Container dan teks diklik!");
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.white, // Warna latar belakang
+                        borderRadius: BorderRadius.circular(12), // Membuat sudut melengkung
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26, // Warna shadow dengan transparansi
+                            blurRadius: 8, // Membuat shadow lebih halus
+                            spreadRadius: 2, // Menyebarkan shadow
+                            offset: Offset(4, 4), // Posisi shadow (X, Y)
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12), // Pastikan gambar ikut melengkung
+                        child: Image.asset("assets/icons/oddeven.png", fit: BoxFit.scaleDown),
+                      ),
+                    ),
+                    Text('Ganjil Genap')
+                  ],
+                ),
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(
@@ -252,8 +305,8 @@ class HomePage extends StatelessWidget {
                   Image.asset("assets/icons/human3.jpg", fit: BoxFit.scaleDown),
             ),
           ),
-          Text('ReFaiza Septa'),
-          Text('123220000')
+          Text('Re Faiza Depta P'),
+          Text('123220050')
         ],
       ),
     ]);
